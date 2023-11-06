@@ -1,0 +1,342 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Calc</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+
+        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .table-primary{
+                text-align: right;
+                vertical-align: start;
+                font-size: 70px;
+                /* font-family: Calculator; */
+                font-style: italic;
+                color: #0d6efd;
+            }
+            .table1{
+                margin: auto
+            }
+     
+        </style>
+    </head>
+    <body>
+        <div id="'contaider">
+            <table class="table1">
+                <tr><td id="screen" colspan="4" class="table-primary" height = "10">123456789</td></tr>
+                <tr>
+                    <td><button id="7" type="button" class="btn btn-outline-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 1.0rem; --bs-btn-font-size: 1.75rem;">7</button></td>
+                    <td><button id="8" type="button" class="btn btn-outline-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 1.0rem; --bs-btn-font-size: 1.75rem;">8</button></td>
+                    <td><button id="9" type="button" class="btn btn-outline-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 1.0rem; --bs-btn-font-size: 1.75rem;">9</button></td>
+                    <td><button id="/" type="button" class="btn btn-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 1.1rem; --bs-btn-font-size: 1.75rem;">/</button></td>        
+                </tr>
+                <tr>
+                    <td><button id="4" type="button" class="btn btn-outline-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 1.0rem; --bs-btn-font-size: 1.75rem;">4</button></td>
+                    <td><button id="5" type="button" class="btn btn-outline-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 1.0rem; --bs-btn-font-size: 1.75rem;">5</button></td>
+                    <td><button id="6" type="button" class="btn btn-outline-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 1.0rem; --bs-btn-font-size: 1.75rem;">6</button></td>
+                    <td><button id="*" type="button" class="btn btn-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 1.08rem; --bs-btn-font-size: 1.75rem;">*</button></td>        
+                </tr>
+                <tr>
+                    <td><button id="1" type="button" class="btn btn-outline-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 1.0rem; --bs-btn-font-size: 1.75rem;">1</button></td>
+                    <td><button id="2" type="button" class="btn btn-outline-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 1.0rem; --bs-btn-font-size: 1.75rem;">2</button></td>
+                    <td><button id="3" type="button" class="btn btn-outline-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 1.0rem; --bs-btn-font-size: 1.75rem;">3</button></td>
+                    <td><button id="-" type="button" class="btn btn-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 1.1rem; --bs-btn-font-size: 1.75rem;">-</button></td>        
+                </tr>
+                <tr>
+                    <td><button id="0" type="button" class="btn btn-outline-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 1.0rem; --bs-btn-font-size: 1.75rem;">0</button></td>
+                    <td><button id="," type="button" class="btn btn-outline-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 1.3rem; --bs-btn-font-size: 1.75rem;">,</button></td>
+                    <td><button id="=" type="button" class="btn btn-danger"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .88rem; --bs-btn-font-size: 1.75rem;">=</button></td>
+                    <td><button id="+" type="button" class="btn btn-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .85rem; --bs-btn-font-size: 1.75rem;">+</button></td>        
+                </tr>
+            </table>
+         
+        </div>
+        <script>
+            let digits, result1
+            let val = []
+            let operator   
+           
+            const screen= document.getElementById('screen')
+            const button7=document.getElementById('7')
+            const button8=document.getElementById('8')
+            const button9=document.getElementById('9')
+            const button4=document.getElementById('4')
+            const button5=document.getElementById('5')
+            const button6=document.getElementById('6')
+            const button1=document.getElementById('1')
+            const button2=document.getElementById('2')
+            const button3=document.getElementById('3')
+            const button0=document.getElementById('0')
+            const buttonDot=document.getElementById(',')
+            const buttonPlus=document.getElementById('+')
+            const buttonMinus=document.getElementById('-')
+            const buttonDivide=document.getElementById('/')
+            const buttonMultiply=document.getElementById('*')
+            const buttonResult=document.getElementById('=')
+            clearDisplay()
+            button7.addEventListener('click', typeSeven);
+            button8.addEventListener('click', typeEight);
+            button9.addEventListener('click', typeNine);
+            button4.addEventListener('click', typeFour);
+            button5.addEventListener('click', typeFive);
+            button6.addEventListener('click', typeSix);
+            button1.addEventListener('click', typeOne);
+            button2.addEventListener('click', typeTwo);
+            button3.addEventListener('click', typeThree);
+            button0.addEventListener('click', typeZero);
+            buttonDot.addEventListener('click', typeDot); 
+            screen.addEventListener('click', clearDisplay);
+
+
+            buttonPlus.addEventListener('click', addition);
+            buttonMinus.addEventListener('click', substraction);
+            buttonMultiply.addEventListener('click', multiplication);
+            buttonDivide.addEventListener('click', division);
+            buttonResult.addEventListener('click', result);
+       
+            function typeSeven(){
+                drawDigits("7")
+            }
+            function typeEight(){
+                drawDigits("8") 
+            }
+            function typeNine(){
+                drawDigits("9")
+            }
+            function typeFour(){
+                drawDigits("4")
+            }
+            function typeFive(){
+                drawDigits("5")
+            }     
+            function typeSix(){
+                drawDigits("6")
+            }
+            function typeOne(){
+                drawDigits("1")
+            }
+            function typeTwo(){
+                drawDigits("2")
+            }
+            function typeThree(){
+                drawDigits("3")
+            }
+            function typeZero(){
+                if (digits.length == 0){
+                    return
+                }
+                drawDigits("0")
+            }
+            function typeDot(){
+                if (digits.length == 0){
+                    drawDigits("0")
+                }else if (digits.indexOf(".")>0){
+                    return
+                }
+                drawDigits(".")
+            }
+            function error(){
+                screen.innerText="Error!"  
+            }
+            function clearDisplay(){
+                digits=""
+                val=[]
+                screen.innerText="0"     
+            }
+            function drawDigits(d){
+                if (d=='NaN'){
+                    error()
+                    return
+                }
+                if (digits.toString().length>7){
+                    return
+                }                
+                digits = digits.toString()+d.toString()   
+                screen.innerText=digits
+            }
+            function assignValues(v){  
+                val.push(Number(v))
+                digits=""       
+            }
+            function addition(){                            //сложение
+                if (val[val.length-1] != Number(digits)) {
+                    result("add")            
+                }
+                if (digits.length == 0){
+                    drawDigits("0")
+                }     
+                if (val[0]=="+"){
+                    digits=""
+                    return
+                }   
+                val[0]='+'
+                assignValues(digits)
+                console.log(val)
+                val=[val[0],val[val.length-1]]
+                operator = operValues('add')  
+                console.log(val)
+            }
+            function substraction(){                        //вычитание
+                if (val[val.length-1] != Number(digits)) {
+                    result("sub")            
+                }
+                if (digits.length == 0){
+                    drawDigits("0")
+                }     
+                if (val[0]=="-"){
+                    digits=""
+                    return
+                }   
+                val[0]='-'
+                assignValues(digits)
+                val=[val[0],val[val.length-1]]
+                operator = operValues('sub')  
+                console.log(val)
+            }
+            function multiplication(){                      //умножение
+                if (val[val.length-1] != Number(digits)) {
+                    result("mult")            
+                }
+                if (digits.length == 0){
+                    drawDigits("0")
+                }     
+                if (val[0]=="*"){
+                    digits=""
+                    return
+                }   
+                val[0]='*'
+                assignValues(digits)
+                val=[val[0],val[val.length-1]]
+                operator = operValues('mult')  
+                console.log(val)
+            }
+            function division(){                            //деление
+                if (val[val.length-1] != Number(digits)) {
+                    result("div")            
+                }
+                if (digits.length == 0){
+                    drawDigits("0")
+                }     
+                if (val[0]=="/"){
+                    digits=""
+                    return
+                }   
+                val[0]='/'
+                assignValues(digits)
+                val=[val[0],val[val.length-1]]
+                operator = operValues('div')  
+                console.log(val)
+            }
+            function result(k){                                //вычисление
+
+                console.log('---------') 
+               
+                if (val.length<2){
+                    return
+                }  
+                if (val.length==4 && !(val[0] == "-"  || val[0] == "/")){
+                    [val[1],val[2]] = [val[2], val[1]]
+                }  
+                assignValues(digits)
+                console.log(val)
+                if (val.length>3){
+                    switch (val[0]){
+                        case "+":
+                            val[1]=val[val.length-1]
+                            val.pop()
+                            break;
+                        case "-":
+                            val[1]=val[val.length-1]                           
+                            val.pop()
+                            val.pop()
+                            break;
+                        case "*":
+                            val[1]=val[val.length-1]
+                            val.pop()
+                            break; 
+                        case "/":
+                            val[1] = Number(val[val.length-1])
+                            val[val.length-1] = val[2]
+                            break;
+                        default:
+                            break;   
+                    }
+                }
+                if (val[0]=="+" || val[0]=="*"){
+                    val[0]=0
+                }
+                console.log(val)
+                result1 = operator(val[1],val[val.length-1])
+                if (result1.toString().length>8){
+                    error()
+                    return
+                }
+                assignValues(result1)    
+                drawDigits(result1)
+                if (k){
+                    switch (k){
+                        case 'add':
+                            val=[val[0],val[val.length-1]]
+                            operator = operValues('add') 
+                            break
+                        case 'sub':
+                            val=[val[0],val[val.length-1]]
+                            operator = operValues('sub') 
+                            break
+                        case 'mult':
+                            val=[val[0],val[val.length-1]]
+                            operator = operValues('mult') 
+                            break
+                        case 'div':
+                            val=[val[0],val[val.length-1]]
+                            operator = operValues('div') 
+                            break
+                        default:
+                            break
+                    } 
+                }
+              
+                console.log(val)  
+                console.log(val[val.length-1] == digits)
+          
+            }
+            function operValues(oper){                       
+                switch (oper) {
+                    case 'add':
+                        return (x,y) => x+y 
+                        break
+                    case 'sub':
+                        return (x,y) => x-y
+                        break
+                    case 'mult':
+                        return (x,y) => x*y
+                        break
+                    case 'div':
+                        return (x,y) => x/y
+                        break
+                    default:
+                        return
+                        break
+                }
+            }
+        </script>
+    </body>
+</html>
